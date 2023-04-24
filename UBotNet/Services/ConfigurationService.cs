@@ -1,11 +1,19 @@
-﻿namespace Service;
+﻿using Microsoft.Extensions.Configuration;
 
-public interface IEnviromtalService
+namespace Service;
+
+public interface IConfigurationService
 {
-    public
+    IConfiguration Configuration { get; }
 }
 
-public class EnviromentalService
+public class ConfigurationService : IConfigurationService
 {
-    
+    private int count = 0;
+    public IConfiguration Configuration { get; }
+
+    public ConfigurationService(IConfiguration configuration)
+    {
+        Configuration = configuration;
+    }
 }
